@@ -21,6 +21,12 @@
             function down(no, parent_num, down){
                 location.href = "/board/comment_down?no="+no+"&parent_num="+parent_num+"&down="+down;
             }
+            function board_up(no, up){
+                location.href = "/board/board_up?no="+no+"&up="+up;
+            }
+            function board_down(no, down){
+                location.href = "/board/board_down?no="+no+"&down="+down;
+            }
         </script>
         <%- include("./head.ejs") %>
     </head>
@@ -98,6 +104,10 @@
                     </td>
                 </tr>
             </table>
+            <div align="center">
+                <img src="../img/up.png" style="height: 20px;" onclick="board_up('<%=content[0].No%>', '<%=content[0].up%>')"> <%=content[0].up%>
+                <img src="../img/down.png" style="height: 20px;" onclick="board_down('<%=content[0].No%>', '<%=content[0].down%>')"> <%=content[0].down%>
+            </div>
             <h6>댓글(<%=opinion.length%>)</h6>
             <table class="table">
                 <%for(var i=0; i < opinion.length;i++){%>
@@ -113,7 +123,7 @@
                             </div>
                         </td>
                         <td style="width: 20%">
-                                <div align="center">
+                            <div align="center">
                                 <img src="../img/up.png" style="height: 20px;" onclick="up('<%=opinion[i].No%>', '<%=content[0].No%>', '<%=opinion[i].up%>')"> <%=opinion[i].up%>
                                 <img src="../img/down.png" style="height: 20px;" onclick="down('<%=opinion[i].No%>', '<%=content[0].No%>', '<%=opinion[i].down%>')"> <%=opinion[i].down%>
                             </div>

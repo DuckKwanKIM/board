@@ -278,4 +278,42 @@ router.get("/comment_down", function(req, res, next){
         }
     )
 })
+
+router.get("/board_up", function(req, res, next){
+    var no = req.query.no;
+    var up = parseInt(req.query.up) + 1;
+    connection.query(
+        `update board set up = ? where No = ?`,
+        [up, no],
+        function(err, result){
+            if(err){
+                console.log(err)
+                res.render("error", {
+                    message : "게시글 좋아요 추가 에러"
+                })
+            }else{
+                res.redirect("/board/info?no="+no);
+            }
+        }
+    )
+})
+
+router.get("/board_down", function(req, res, next){
+    var no = req.query.no;
+    var down = parseInt(req.query.down) + 1;
+    connection.query(
+        `update board set down = ? where no = ?`,
+        [down, no],
+        function(err, result){
+            if(err){
+                console.log(err)
+                res.render("error", {
+                    message : "게시글 싫어요 추가 에러"
+                })
+            }else{
+                res.redirect("/board/info?no="+no);
+            }
+        }
+    )
+})
 module.exports = router;
