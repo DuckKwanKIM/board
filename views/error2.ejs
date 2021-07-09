@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function popup(message){
+                alert(message);
+                window.history.back();
+            }
+        </script>
+    </head>
+    <body onload="popup('<%=message%>')"></body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function add(){
+                location.href = "/board/add";
+            }
+            function info(no){
+                location.href = "/board/info?no="+no;
+            }
+            function logout(){
+                location.href = "/";
+            }
+        </script>
+        <%- include("./head.ejs") %>
+    </head>
+    <body>
+        <%- include("./nav.ejs") %>
+        <div class="container" style="margin-top: 20px;">
+            <div style="margin-top: 40px;">
+                <h2>
+                    게시판
+                </h2>
+        <table class = "table">
+            <tr>
+                <th>No</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+            <%if(content.length == 0){%>
+                <tr>
+                    <td colspan="5">해당 게시판은 게시글이 없습니다</td>
+                </tr>
+                <%}else{
+                    for(var i = 0; i < content.length; i++){%>
+                <tr onclick="info('<%=content[i].No%>')">
+                    <td><%=content[i].No%></td>
+                    <td><%=content[i].title%></td>
+                    <td><%=content[i].author%></td>
+                    <td><%=content[i].date%></td>
+                    <td><%=content[i].time%></td>                    
+                </tr>
+                <%}}%>
+        </table>
+        </div>
+            <div align="right">
+                <button onclick="add()" class="btn btn-outline-info">글쓰기</button>
+            </div>
+    </body>
+</html>

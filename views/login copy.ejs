@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function signup(){
+                location.href="/signup";
+            }
+        </script>
+    </head>
+    <body>
+        <form action="/login" method="POST">
+            <input type="text" placeholder="ID" name="post_id">
+            <input type="password" placeholder="PASSWORD" name="password">
+            <input type="submit" value="login">
+        </form>
+        <button onclick="signup()">회원가입</button>
+    </body>
+</html>

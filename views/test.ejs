@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            $(function(){
+                var i = 0;
+                $("button").on("click", function(){
+                    $("p").html("<div>"+(++i)+"</div>");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p>안녕하세요.</p>
+        <button>문장 변경</button>
+    </body>
+</html>
